@@ -4,6 +4,10 @@ FROM python:3.10-slim
 # Set working directory inside container
 WORKDIR /app
 
+# Install git (needed for pip install from GitHub) and any system dependencies
+RUN apt-get update && apt-get install -y git
+
+
 # Copy current project into the container
 COPY . .
 

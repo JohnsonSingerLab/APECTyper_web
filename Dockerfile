@@ -1,5 +1,5 @@
 # Use official lightweight Python image
-FROM python:3.11-slim
+FROM python:3.10-slim
 
 # Set working directory inside container
 WORKDIR /app
@@ -14,4 +14,7 @@ RUN pip install --no-cache-dir --upgrade pip && pip install -r requirements.txt
 ENV PORT=5000
 
 # Run the Flask app
-CMD ["python", "-m", "app.main"]
+# CMD ["python", "-m", "app.main"]
+
+# Run the app with gunicorn
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "app.main:app"]

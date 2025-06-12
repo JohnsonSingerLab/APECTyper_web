@@ -8,7 +8,7 @@ from scripts.run_mlst import run_mlst
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Required for using sessions
+app.secret_key = os.environ.get('SECRET_KEY', 'fallback-dev-key') # Required for using sessions
 app.config['UPLOAD_FOLDER'] = 'app/uploads'
 
 @app.route('/', methods=['GET', 'POST'])

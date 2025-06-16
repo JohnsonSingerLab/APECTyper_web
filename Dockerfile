@@ -16,14 +16,13 @@ WORKDIR /app
 # Copy current project into the container
 COPY . .
 
-
 # Ensure upload directory exists
 RUN mkdir -p app/uploads
 
 # Install dependencies
-# RUN pip install --no-cache-dir --upgrade pip && pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-
+RUN pip install ectyper
 
 # Expose Flask port
 EXPOSE 5000

@@ -22,7 +22,8 @@ RUN mkdir -p app/uploads
 # Install dependencies
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install ectyper
+# RUN pip install ectyper
+RUN pip install git+https://github.com/phac-nml/ecoli_serotyping.git
 
 # Expose Flask port
 EXPOSE 5000

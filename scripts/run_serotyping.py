@@ -17,7 +17,7 @@ def run_serotyping(fasta_path):
     # Run ECTyper command
     # Assume ectyper is installed and available in PATH
     subprocess.run([
-        "ECTyper", 
+        "python3", "-m", "ECTyper",
         "--verify",
         "--input", fasta_path,
         "--output", output_path,
